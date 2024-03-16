@@ -52,4 +52,9 @@ public class EmployeeController {
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Employee>> searchEmployeeByNameOrMailId(@RequestParam("query") String query) {
+        return ResponseEntity.ok(employeeRepository.searchEmployee(query));
+    }
 }
